@@ -68,10 +68,7 @@ struct BrowserWindow : Widget {
         webview.url =[&](){ return urlBar.text(); };
         //urlBar.text =[&](){ return webview.url(); }; //Well , that's a loop
         windowTitle = [&]() { return webview.title(); };
-        windowIcon = [&]() { 
-            qDebug() << "icon changed" << webview.title() << webview.icon().isNull();
-            return webview.icon(); };
-    }
+        windowIcon = [&]() { return webview.icon(); }; }
 };
 
 int main(int argc, char **argv)

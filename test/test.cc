@@ -31,7 +31,7 @@ struct rectangle {
   property<int> area = [&]{ return calculateArea(width, height); };
 
   property<std::string> color = [&]{
-    if (parent && area > parent()->area)
+    if (parent() && area > parent()->area)
       return std::string("blue");
     else
       return std::string("red");

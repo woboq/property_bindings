@@ -112,8 +112,10 @@ struct property : property_base {
   }
 
   //make it possible to initialize directly with lamda without any casts
-  template<typename B> property(const B &b, typename std::enable_if<std::is_constructible<binding_t, B>::value, int*>::type = nullptr) : property(binding_t(b)) {}
-  template<typename B> typename std::enable_if<std::is_constructible<binding_t, B>::value>::type operator= (const B &b) { *this=binding_t(b); }
+  template<typename B> property(const B &b, typename std::enable_if<std::is_constructible<T, B>::value, int*>::type = nullptr) : property(T(b)) {}
+  template<typename B> typename std::enable_if<std::is_constructible<T, B>::value>::type operator= (const B &b) { *this=T(b); }
+  template<typename B> property(const B &b, typename std::enable_if<std::is_constructible<binding_t, B>::value && !std::is_constructible<T, B>::value, int*>::type = nullptr) : property(binding_t(b)) {}
+  template<typename B> typename std::enable_if<std::is_constructible<binding_t, B>::value && !std::is_constructible<T, B>::value>::type operator= (const B &b) { *this=binding_t(b); }
 
   const T &get() const {
     const_cast<property*>(this)->accessed();
