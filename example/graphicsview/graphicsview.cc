@@ -20,7 +20,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "property.h"
 #include "qobject_wrappers.h"
 
-#include <QtGui/QtGui>
+#include <QtWidgets/QtWidgets>
 
 typedef QtWrapper::Widget<QWidget> Widget;
 typedef QtWrapper::AbstractSlider<QSlider> Slider;
@@ -99,4 +99,4 @@ int main(int argc, char **argv)
     return app.exec();
 }
 
-// c++ -std=c++11 -I../../src -lQtCore -lQtGui ./graphicsview.cc
+// c++ -std=c++11 -I../../src -lQt5Core -lQt5Gui -lQt5Widgets -fPIC -I/usr/include/qt ./graphicsview.cc

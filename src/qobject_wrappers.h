@@ -20,7 +20,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "property_qobject.h"
 
-#include <QtGui/QWidget>
+#include <QtWidgets/QWidget>
 #include <QtCore/qcoreevent.h>
 
 namespace QtWrapper {
